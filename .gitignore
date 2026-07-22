@@ -1,0 +1,130 @@
+# =========================
+# Unity
+# =========================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/ServerData/
+
+*.log
+sysinfo.txt
+mono_crash.*
+
+# Blender temp/import artifacts
+*.blend1
+*.blend1.meta
+
+# Asset Store tools (uncomment only if you want to ignore it)
+# /[Aa]ssets/AssetStoreTools*
+
+# =========================
+# IDE / Editor junk
+# =========================
+.vs/
+.vscode/
+.idea/
+.gradle/
+.consulo/
+
+# Rider personal settings
+*.DotSettings.user
+
+# Auto-generated Rider plugin
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# =========================
+# Auto-generated solution/project files
+# =========================
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity-generated meta for IDE/database files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# =========================
+# Build outputs / packages
+# =========================
+*.apk
+*.aab
+*.app
+*.unitypackage
+*.unitypackage.meta
+
+# =========================
+# Addressables
+# =========================
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# =========================
+# Unity Visual Scripting generated files
+# =========================
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+# =========================
+# Play mode / test generated scenes
+# =========================
+InitTestScene*.unity*
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/Assets/ALP_Assets
+/Assets/BxB Studio
+/Assets/BxB Studio
+/Assets/EasyRoads3D
+/Assets/Environment
+/Assets/Imports
+/Assets/Materials
+/Assets/Plugins
+/Assets/Stylized Terrain Textures
+/Packages/dev.bxbstudio.inputs-manager
+/Packages/dev.bxbstudio.utilities
+/Assets/EasyRoads3D scenes
+/Assets/PBR_Grass_Textures
+/Assets/TerrainData
+/Packages/dev.bxbstudio.mvc.pro
+/EasyRoads3Dv3
+/MVC Prefs
+/Assets/ALP_Assets
+/Assets/Stylized Water 3
+/Assets/ANGRY MESH
+/Assets/DTT
+/Assets/PostProcessing
+/Assets/RealBlend
+/Assets/Kamgam
+/Assets/UniStorm Weather System
+/Assets/Gizmos
+/Assets/Samples
+/Assets/Polybrush Data
+/Assets/Distant Lands
+/Assets/RealisticEngineSound
+/Assets/Textures/texturecan
+/Assets/Textures/FreeStylized
+Assets/InputSystem_Actions.inputactions
+/Assets/TextMesh Pro
+/ProjectSettings
+/Assets/Settings
