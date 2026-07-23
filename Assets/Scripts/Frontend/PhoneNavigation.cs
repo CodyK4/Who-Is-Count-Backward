@@ -2,35 +2,47 @@ using UnityEngine;
 
 public class PhoneNavigation : MonoBehaviour
 {
+    //A very simple script for rudamentary phone navigation 
+
     [SerializeField] private GameObject homeScreen;
     [SerializeField] private GameObject messagesScreen;
+    [SerializeField] private GameObject conversationsScreen;
     [SerializeField] private GameObject galleryScreen;
 
-    public void Start()
+    private void Start()
     {
-        homeScreen.SetActive(true);
-        messagesScreen.SetActive(false);
-        galleryScreen.SetActive(false);
+        GoToHomeScreen();
     }
 
     public void GoToHomeScreen()
     {
         homeScreen.SetActive(true);
         messagesScreen.SetActive(false);
+        conversationsScreen.SetActive(false);
         galleryScreen.SetActive(false);
     }
-    
+
     public void GoToMessages()
     {
-        messagesScreen.SetActive(true);
         homeScreen.SetActive(false);
+        messagesScreen.SetActive(true);
+        conversationsScreen.SetActive(false);
+        galleryScreen.SetActive(false);
+    }
+
+    public void GoToConversation()
+    {
+        homeScreen.SetActive(false);
+        messagesScreen.SetActive(false);
+        conversationsScreen.SetActive(true);
         galleryScreen.SetActive(false);
     }
 
     public void GoToGallery()
     {
-        galleryScreen.SetActive(true);
         homeScreen.SetActive(false);
         messagesScreen.SetActive(false);
+        conversationsScreen.SetActive(false);
+        galleryScreen.SetActive(true);
     }
 }

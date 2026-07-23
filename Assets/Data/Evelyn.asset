@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0f9465ab7696142ac3a15a37af66c2, type: 3}
+  m_Name: Evelyn
+  m_EditorClassIdentifier: 
+  characterId: char_evelyn
+  displayName: Evelyn
+  profilePicture: {fileID: 0}
+  scheduledMessages:
+  - messageId: welcome_message
+    triggerHour: 21
+    triggerMinute: 2
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: This Is a Test Message
+      delay: 0.5
+    - sender: 1
+      text: This is a Test Message
+      delay: 0.5
+  - messageId: welcome_message2
+    triggerHour: 21
+    triggerMinute: 3
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: This is a Test Message
+      delay: 0.5
+    - sender: 1
+      text: This is a Test Message
+      delay: 0.5
+  - messageId: welcome_message3
+    triggerHour: 21
+    triggerMinute: 4
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: This is a Test Message
+      delay: 0.5
+    - sender: 1
+      text: This is a Test Message
+      delay: 0.5
+  questions: []

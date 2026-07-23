@@ -1,7 +1,7 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class TimeRunner : MonoBehaviour
 {
@@ -54,6 +54,15 @@ public class TimeRunner : MonoBehaviour
     private float RealDurationSeconds => realGameLengthMinutes * 60f;
     private float GameDurationSeconds => (timeLengthHours * 60f + additionalGameMinutes) * 60f;
     private float StartTimeSeconds => (startHour * 60f + startMinute) * 60f;
+
+    public event Action<int, int> OnMinuteChanged;
+
+    public int CurrentHour { get; private set; }
+    public int CurrentMinute { get; private set; }
+
+    private int previousMinute = -1;
+
+    public string CurrentTimeString => $"{CurrentHour:00}:{CurrentMinute:00}";
 
     private void Start()
     {
@@ -142,6 +151,17 @@ public class TimeRunner : MonoBehaviour
         int hours = (int)(currentTimeSeconds / 3600f) % 24;
         int minutes = (int)(currentTimeSeconds / 60f) % 60;
         int seconds = (int)(currentTimeSeconds % 60f);
+
+        CurrentHour = hours;
+        CurrentMinute = minutes;
+
+        if (CurrentMinute != previousMinute)
+        // Trigger the OnMinuteChanged event when the minute changes, for backend events
+        {
+            previousMinute = CurrentMinute;
+            Debug.Log($"Minute changed to {CurrentHour:00}:{CurrentMinute:00}");
+            OnMinuteChanged?.Invoke(hours, minutes);
+        }
 
         if (timeText == null)
         {
