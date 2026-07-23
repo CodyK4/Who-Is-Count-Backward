@@ -1,30 +1,46 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class TimeRunner : MonoBehaviour
 {
-    //this script is responsible for running the in-game time, triggering events when the time expires, and updating the UI with the current time.
+    // This script is responsible for running the in-game time, triggering events when the time expires, and updating the UI with the current time.
+    // Based on an  older script from a previous project, and has been modified to fit the needs of this project.
 
-    [Header("Start Time")]
+        [Header("Start Time")]
     [Range(0, 23)] public int startHour = 21;
     [Range(0, 59)] public int startMinute = 0;
 
-    [Header("In-Game Time Length")]
+        [Header("In-Game Time Length")]
     [Range(1, 24)] public int timeLengthHours = 3;
 
     [Range(0, 59)]
     [SerializeField] private int additionalGameMinutes;
 
-    [Header("Real Game Length")]
+        [Header("Real Game Length")]
     [Min(1f)]
     [Tooltip("How Many real-world minutes the game lasts.")]
     [SerializeField] private float realGameLengthMinutes = 10f;
 
-    [Header("UI Output")]
+        [Header("UI Output")]
+        //UI Outputs
+    [Tooltip("Digital Time")]
     [SerializeField] private TMP_Text timeText;
 
-    [Header("Events")]
+    [Tooltip("Use Analogue Output?")]
+    [SerializeField] private bool useAnalogueOutput = true;
+
+    [Tooltip("Minute Hand for an analogue clock")]
+    [SerializeField] Transform minuteHand;
+    private Quaternion minuteHandlocalRotation;
+
+    [Tooltip("Hour Hand for an analogue clock")]
+    [SerializeField] Transform hourHand;
+    private Quaternion hourHandlocalRotation;
+        //
+
+        [Header("Events")]
     [SerializeField] private UnityEvent onTimeExpired;
 
     private float elapsedRealSeconds;
@@ -34,7 +50,7 @@ public class TimeRunner : MonoBehaviour
     public float Progress { get; private set; }
     public float RemainingRealSeconds { get; private set; }
 
-    //lambdas to calculate the time in seconds for the game duration, real duration, and start time.
+    // Lambdas to calculate the time in seconds for the game duration, real duration, and start time.
     private float RealDurationSeconds => realGameLengthMinutes * 60f;
     private float GameDurationSeconds => (timeLengthHours * 60f + additionalGameMinutes) * 60f;
     private float StartTimeSeconds => (startHour * 60f + startMinute) * 60f;
@@ -42,6 +58,12 @@ public class TimeRunner : MonoBehaviour
     private void Start()
     {
         StartTimer();
+    }
+
+    private void Awake()
+    {
+        hourHandlocalRotation = hourHand.localRotation;
+        minuteHandlocalRotation = minuteHand.localRotation;
     }
 
     private void Update()
@@ -95,6 +117,46 @@ public class TimeRunner : MonoBehaviour
     {
         // Used for restarting the game
         StartTimer();
+    }
+
+    private void FinishTimer()
+    {
+        Progress = 1f;
+        RemainingRealSeconds = 0f;
+
+        isRunning = false;
+        hasFinished = true;
+
+        UpdateTimeUI();
+
+        onTimeExpired?.Invoke();
+    }
+
+    private void UpdateTimeUI()
+    {
+        float currentTimeSeconds = StartTimeSeconds + GameDurationSeconds * Progress;
+
+        // Wraps the clock after 24
+        currentTimeSeconds %= 24 * 60f * 60f;
+
+        int hours = (int)(currentTimeSeconds / 3600f) % 24;
+        int minutes = (int)(currentTimeSeconds / 60f) % 60;
+        int seconds = (int)(currentTimeSeconds % 60f);
+
+        if (timeText == null)
+        {
+            return;
+        }
+        else
+        {
+            timeText.text = $"{hours:00}:{minutes:00}";
+        }
+
+        if (useAnalogueOutput)
+        {
+            minuteHand.localRotation = minuteHandlocalRotation * Quaternion.Euler(0f, 0f, -6f * minutes);
+            hourHand.localRotation = hourHandlocalRotation * Quaternion.Euler(0f, 0f, -30f * (hours + minutes / 60f));
+        }
     }
 }
 
