@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ChatMessageBubble : MonoBehaviour
     // A simple script to set the message text of a chat message bubble in the UI.
 {
+    [Header("Text)")]
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private TMP_Text timeStampText;
 
@@ -11,5 +13,6 @@ public class ChatMessageBubble : MonoBehaviour
     {
         messageText.text = message;
         timeStampText.text = $"{hour:00}:{minute:00}";
+
     }
 }

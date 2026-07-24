@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class OpenContactButton : MonoBehaviour
@@ -7,6 +8,23 @@ public class OpenContactButton : MonoBehaviour
     [SerializeField] private Character contact;
     [SerializeField] private ConversationManager conversationManager;
     [SerializeField] private PhoneNavigation phoneNavigation;
+    [SerializeField] private TMP_Text lastMessageText;
+
+    public void Awake()
+    {
+        contact.contactButton = this;
+    }
+
+    public void SetLastMessage(string message, bool unread)
+    {
+        lastMessageText.text = message;
+        lastMessageText.fontStyle = unread ? FontStyles.Bold : FontStyles.Normal;
+    }
+
+    public void MarkAsRead()
+    {
+        lastMessageText.fontStyle = FontStyles.Normal;
+    }
 
     public void OpenContact()
     {

@@ -15,41 +15,51 @@ MonoBehaviour:
   characterId: char_evelyn
   displayName: Evelyn
   profilePicture: {fileID: 0}
+  contactButton: {fileID: 0}
   scheduledMessages:
-  - messageId: welcome_message
-    triggerHour: 21
-    triggerMinute: 2
+  - messageId: Opening_Message
+    triggerHour: 20
+    triggerMinute: 41
     requiredClues: []
     grantedClues: []
     messages:
     - sender: 1
-      text: This Is a Test Message
-      delay: 0.5
+      text: 'Thank you for agreeing to take the case on such short notice. I''m terribly
+        sorry for asking this of you on New Year''s Eve but... I don''t know who
+        else to ask
+
+
+        Something happened earlier today that I cannot explain,
+        whilst checking my guest list, I found an extra name at the bottom, ''Count
+        Backward''
+
+
+        I dismissed it at first, but one of my guests insists
+        it is connected to an old legend, and everyone has been acting a little strange
+        on arrival.'
+      delay: 0
     - sender: 1
-      text: This is a Test Message
-      delay: 0.5
-  - messageId: welcome_message2
-    triggerHour: 21
-    triggerMinute: 3
+      text: I have sent your details to all of the party guests, I have asked them
+        to contact you to make a brief introduction, so you should be getting those
+        shortly.
+      delay: 1.1
+  questions:
+  - questionId: QOPEN
+    questionText: Let's start at the beginning, tell me exactly what happened.
+    askOnce: 1
     requiredClues: []
-    grantedClues: []
-    messages:
-    - sender: 1
-      text: This is a Test Message
-      delay: 0.5
-    - sender: 1
-      text: This is a Test Message
-      delay: 0.5
-  - messageId: welcome_message3
-    triggerHour: 21
-    triggerMinute: 4
-    requiredClues: []
-    grantedClues: []
-    messages:
-    - sender: 1
-      text: This is a Test Message
-      delay: 0.5
-    - sender: 1
-      text: This is a Test Message
-      delay: 0.5
-  questions: []
+    grantedClues:
+    - backstory
+    response:
+    - sender: 0
+      text: 'This morning I was checking the guest list one last time before the
+        party. Every name was exactly where I''d left it... except one.
+
+        At
+        the bottom of the list was ''Count Backward.''
+
+        I didn''t write
+        it... at least, I don''t remember writing it.
+
+'
+      delay: 0.8

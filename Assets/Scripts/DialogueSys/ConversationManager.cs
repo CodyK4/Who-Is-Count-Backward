@@ -52,6 +52,8 @@ public class ConversationManager : MonoBehaviour
     {
         currentContact = contact;
 
+        contact.contactButton?.MarkAsRead();
+
         typingIndicator.SetActive(false);
 
         contactNameText.text = contact.displayName;
@@ -164,7 +166,7 @@ public class ConversationManager : MonoBehaviour
                 typingIndicator.SetActive(false);
             }
 
-            AddMessage(respondingContact, message.text, message.sender == MessageSender.Player);
+            AddMessage(respondingContact, message.text, false);
 
         }
 
@@ -186,6 +188,11 @@ public class ConversationManager : MonoBehaviour
         Debug.Log($"Message added to {contact.displayName}: {text}");
 
         GetHistory(contact).Add(new StoredMessage(text, isPlayer, hour, minute));
+
+        if (!isPlayer)
+        {
+            contact.contactButton.SetLastMessage(text, currentContact != contact);
+        }
 
         if (currentContact == contact)
         {

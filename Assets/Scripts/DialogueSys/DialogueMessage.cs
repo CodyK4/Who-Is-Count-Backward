@@ -4,7 +4,7 @@ using System;
 [Serializable]
 public class DialogueMessage 
 {
-    public MessageSender sender;
+    public MessageSender sender = MessageSender.Contact;
 
     [TextArea]
     public string text;
