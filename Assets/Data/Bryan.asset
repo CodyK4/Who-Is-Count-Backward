@@ -15,6 +15,202 @@ MonoBehaviour:
   characterId: char_bryan
   displayName: Bryan
   profilePicture: {fileID: 0}
-  contactButton: {fileID: 7464986650692097170, guid: 87c7284c6a4bcc1409847d447b8625c2, type: 3}
-  scheduledMessages: []
-  questions: []
+  contactButton: {fileID: 0}
+  scheduledMessages:
+  - messageId: bryan_introduction
+    triggerHour: 20
+    triggerMinute: 46
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: Hello there, my name is Bryan, a friend of Richard's, Evelyn told me
+        to contact you, she is right to be worried, but it's her own fault for opening
+        the damned book!
+      delay: 0
+  - messageId: bryan_richards_strange_actions
+    triggerHour: 22
+    triggerMinute: 55
+    requiredClues: []
+    grantedClues:
+    - what_is_richard_doing
+    messages:
+    - sender: 1
+      text: Richard is acting strange, he is wandering around the house, staring
+        and clocks, checking cabinets, locking and unlocking display cases... Thought
+        you ought to know.
+      delay: 0
+  questions:
+  - questionId: Q01B
+    questionText: What do you know about 'Count Backward'?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    grantedClues:
+    - bryans_knowledge
+    response:
+    - sender: 1
+      text: Count Backward is, according to legend, a spirit which arrives at gatherings
+        on New Years Eve, but only if invited.
+      delay: 5.3
+    - sender: 1
+      text: Count Backward is then 'given license' (As the legend says) to inhabit
+        the mind and body of one of the attendees for the duration. If he is not
+        told to leave by midnight, he will reset time for the guests in a never ending
+        cycle in which, they never see the new year.
+      delay: 2.3
+  - questionId: Q02B/A
+    questionText: How do you know so much about the Count?
+    askOnce: 1
+    requiredClues:
+    - bryans_knowledge
+    - backstory
+    grantedClues:
+    - 
+    response:
+    - sender: 1
+      text: I am a historian, you see, and I dabble in legend from time to time,
+        though granted, this is somewhat of a niche one.
+      delay: 3.1
+  - questionId: Q02B/B
+    questionText: What do you know of a diary?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    - the_diary
+    - bryans_knowledge
+    grantedClues:
+    - evelyn_bryan_confrontation
+    response:
+    - sender: 1
+      text: Honestly? I hid it, you see myself and Evelyn historically aren't on
+        the best of terms, and I used to play sort of pranks on her to give her a
+        fright. I placed the diary without her knowledge many years ago
+      delay: 2.8
+    - sender: 1
+      text: I had completely forgotten about the diary, until Evelyn confronted me
+        about it earlier, at around 8:30
+      delay: 1.8
+  - questionId: Q03B
+    questionText: What came of your confrontation with evelyn?
+    askOnce: 1
+    requiredClues:
+    - evelyn_bryan_confrontation
+    - backstory
+    - the_diary
+    - bryans_knowledge
+    grantedClues:
+    - 
+    response:
+    - sender: 1
+      text: I told her to give it back, and forget that she had read any of it.
+      delay: 2.8
+    - sender: 1
+      text: You see, a few years after hiding it I was researching an unrelated matter,
+        when I stumbled across an old newspaper article which to my surprise mentioned
+        the Count, and when I looked it, I found tens, ney, hundreds of testimonies,
+        always on the eve of a new year, writing his name apparently had no effect
+        any other day of the year.
+      delay: 1.8
+    - sender: 1
+      text: The testimonies almost always mentioned of a guest acting strange after
+        his name had been written down- remembering events that only occured later
+        in the evening, and having impossible knowledge.
+      delay: 2.2
+    - sender: 1
+      text: I'm not usually a believer in the supernatural but this... it gave me
+        chils.
+      delay: 3
+  - questionId: Q04B/A
+    questionText: How long have you known Richard?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    - the_diary
+    - richard_bryan_relationship
+    grantedClues:
+    - 
+    response:
+    - sender: 1
+      text: My entire life! We attended primary school togethor, and have been friends
+        ever since.
+      delay: 2.8
+  - questionId: Q04B/B
+    questionText: Richard said you know a lot about the textiles industry?
+    askOnce: 1
+    requiredClues:
+    - richard_bryan_relationship
+    - bryans_textile_knowledge
+    grantedClues:
+    - richards_faulty_memory_2
+    response:
+    - sender: 1
+      text: Yes! Well... I'm no expert of course, but it's interesting! I briefly
+        worked with Richard in their family mill in my early 20s.
+      delay: 3
+  - questionId: Q06B
+    questionText: Richard said that you knew each other from secondary school, not
+      primary school.
+    askOnce: 1
+    requiredClues:
+    - richard_bryan_relationship
+    - bryans_textile_knowledge
+    - bryans_faulty_memory
+    grantedClues: []
+    response:
+    - sender: 1
+      text: Secondary school? Yes. Sorry. I pictured us much younger.
+      delay: 4.3
+  - questionId: Q08B/A
+    questionText: Richard's pocket watch is missing, did you see anybody leave the
+      drawing room in the last twenty or so minutes?
+    askOnce: 1
+    requiredClues:
+    - missing_pocket_watch
+    grantedClues:
+    - stolen_pocket_watch?
+    response:
+    - sender: 1
+      text: Oh no! Thats terrible. Its okay, Richard will forgive the person who
+        stole it.
+      delay: 2.1
+    - sender: 1
+      text: I've been speaking to Grace for the past twenty minutes, so no, I didn't
+        see anything.
+      delay: 3.8
+  - questionId: Q08B/B
+    questionText: What do you mean? 'the person who stole it'? Nobody is implying
+      it is stolen.
+    askOnce: 1
+    requiredClues:
+    - stolen_pocket_watch?
+    grantedClues: []
+    response:
+    - sender: 1
+      text: Ah quite, yes... It may not have been stolen, but we're at a party, its
+        seems likely? no?
+      delay: 6.2
+  - questionId: Q10B
+    questionText: What did you mutter to yourself immediately after the loud crash?
+    askOnce: 1
+    requiredClues:
+    - what_did_bryan_say
+    grantedClues: []
+    response:
+    - sender: 1
+      text: I don't recall muttering anything to myself. Perhaps it was my gasp at
+        the surprise crashing sound?
+      delay: 1.2
+  - questionId: Q12B
+    questionText: Why did you say 'I'm glad that he has forgiven you' to Alex, you
+      were unaware of what he had done, were you not?
+    askOnce: 1
+    requiredClues:
+    - what_bryan_whispered_to_alex
+    grantedClues:
+    - bryan_says_alex_lies
+    response:
+    - sender: 1
+      text: I don't know what your talking about. Alex is lying. Richard already
+        forgave him more than half an hour ago.
+      delay: 2

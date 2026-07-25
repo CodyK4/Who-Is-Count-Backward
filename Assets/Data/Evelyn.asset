@@ -42,7 +42,31 @@ MonoBehaviour:
       text: I have sent your details to all of the party guests, I have asked them
         to contact you to make a brief introduction, so you should be getting those
         shortly.
-      delay: 1.1
+      delay: 7.5
+  - messageId: more_information
+    triggerHour: 22
+    triggerMinute: 0
+    requiredClues: []
+    grantedClues:
+    - 10_more_information
+    messages:
+    - sender: 1
+      text: Do you need any more information on any of the guests?
+      delay: 3.2
+  - messageId: evelyn_on_the_bang
+    triggerHour: 22
+    triggerMinute: 35
+    requiredClues: []
+    grantedClues:
+    - the_big_bang
+    messages:
+    - sender: 1
+      text: We just heard a loud crashing sound from upstairs! Richard had just been
+        asking us about the missing pocket watch when we heard the noise.
+      delay: 0
+    - sender: 1
+      text: Also, Bryan seemed to mutter something to himself...
+      delay: 2.1
   questions:
   - questionId: QOPEN
     questionText: Let's start at the beginning, tell me exactly what happened.
@@ -51,15 +75,177 @@ MonoBehaviour:
     grantedClues:
     - backstory
     response:
-    - sender: 0
+    - sender: 1
       text: 'This morning I was checking the guest list one last time before the
         party. Every name was exactly where I''d left it... except one.
 
         At
         the bottom of the list was ''Count Backward.''
 
-        I didn''t write
-        it... at least, I don''t remember writing it.
+        I didn''t write it...
+        at least, I don''t remember writing it.
 
 '
+      delay: 2.8
+  - questionId: Q01E
+    questionText: What do you know about 'Count Backward'?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    grantedClues:
+    - the_diary
+    response:
+    - sender: 0
+      text: All I know is that my housekeeper, Grace, found a diary mentioning it.
       delay: 0.8
+  - questionId: Q02E
+    questionText: What else can you tell me about this diary?
+    askOnce: 1
+    requiredClues:
+    - the_diary
+    - backstory
+    grantedClues:
+    - evelyn_bryan_confrontation
+    response:
+    - sender: 0
+      text: I didnt read it... well, I didn't read much of it, I know it belonged
+        to man called William Hodd, it is very weathered, but I did read something
+        about 'Count Backward' mysteriously appearing on invitation lists, which
+        is what first set off my fears, and suspicions.
+      delay: 2.1
+    - sender: 0
+      text: "I confronted Bryan about this, he has pranked me before and i suspected
+        this was one of his childish attempts at getting a scare out of me, and to
+        my utter expectation, I was correct. I do not like that man.\t"
+      delay: 3.8
+  - questionId: Q03E/A
+    questionText: Alex seems to be withdrawing information from me, what do you think?
+    askOnce: 1
+    requiredClues:
+    - alexs_secrecy_2
+    grantedClues:
+    - richard_trusts_alex
+    response:
+    - sender: 1
+      text: 'Alex is a shy kid, he is 21, I doubt he knows anything.
+
+
+        Alex
+        is Richard''s apprentice at the textile factory, My husband can tell you
+        more.'
+      delay: 3.1
+  - questionId: Q03E/B
+    questionText: What came of your confrontation with Bryan?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    - the_diary
+    - evelyn_bryan_confrontation
+    grantedClues:
+    - richard_bryan_relationship
+    response:
+    - sender: 1
+      text: He told me to give the diary back and to 'forget that I read anything'
+      delay: 1.2
+    - sender: 1
+      text: I just scoffed at him and walked away, I don't know why he and Richard
+        are still best friends.
+      delay: 2.8
+  - questionId: Q06E
+    questionText: Why did you shut down the conversation about diary with Grace?
+    askOnce: 1
+    requiredClues:
+    - the_diary
+    - evelyn_shutdown_grace
+    grantedClues:
+    - richard_bryan_relationship
+    response:
+    - sender: 1
+      text: Because quite frankly my dear, it is none of her buisness. I just want
+        everybody to have a good night.
+      delay: 3.2
+  - questionId: EV-10G
+    questionText: What more can you tell me about Grace?
+    askOnce: 1
+    requiredClues:
+    - 10_more_information
+    grantedClues: []
+    response:
+    - sender: 1
+      text: Grace has worked in the house for 11 years as our housekeeper, she cleans
+        and ensures the house is in a suitable condition for us, she is very good
+        at her job.
+      delay: 2.841
+  - questionId: EV-10R
+    questionText: What more can you tell me about Richard?
+    askOnce: 1
+    requiredClues:
+    - 10_more_information
+    grantedClues: []
+    response:
+    - sender: 1
+      text: I have been married to Richard for a long time, forty years, he's inherited
+        his family's textile mill from his father 15 years ago, and still runs it
+        to this day.
+      delay: 2.865
+  - questionId: Q09E
+    questionText: Who was present in the conversation? And what did Bryan mutter
+      to himself?
+    askOnce: 1
+    requiredClues:
+    - the_big_bang
+    grantedClues:
+    - where_was_grace
+    - where_did_alex_go_2
+    - what_did_bryan_say
+    response:
+    - sender: 1
+      text: Richard was asking myself, Alex and Bryan about the missing watch. Alex
+        seemed to have disappeared when the crash occured, but he only left maybe
+        a handful of seconds before the sound occured.
+      delay: 2.865
+    - sender: 1
+      text: I don't know what Bryan muttered, something about a clock perhaps?
+      delay: 3.5
+  - questionId: Q13E/A
+    questionText: Why do you want the spare room cleared to read the diary in peace?
+    askOnce: 1
+    requiredClues:
+    - evelyns_secret_1
+    grantedClues:
+    - evelyns_secret_2
+    response:
+    - sender: 1
+      text: Because Richard thinks those old superstitions are nonsense. I didn't
+        want him laughing at me.
+      delay: 2.865
+  - questionId: Q13E/B
+    questionText: 'You said that you had only read a small amount of the diary? '
+    askOnce: 1
+    requiredClues:
+    - evelyns_secret_2
+    grantedClues:
+    - evelyns_secret_3
+    response:
+    - sender: 1
+      text: Yes... I'm sorry I have read more of it than I let on.
+      delay: 2.865
+  - questionId: Q13E/C
+    questionText: Then why shut down Grace when she asked you about it? Why lie?
+    askOnce: 1
+    requiredClues:
+    - evelyns_secret_3
+    grantedClues:
+    - evelyns_admission
+    response:
+    - sender: 1
+      text: Because...
+      delay: 3
+    - sender: 1
+      text: I wrote the name on the invite list, I admit it.
+      delay: 4
+    - sender: 1
+      text: I have been obsessing over the diary, and had to prove it wrong to myself,
+        but Bryan convinced me the diary is real, and that is why I had to contact
+        you.
+      delay: 1

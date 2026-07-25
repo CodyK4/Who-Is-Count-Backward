@@ -32,8 +32,9 @@ public class ConversationManager : MonoBehaviour
     private bool responsePlaying;
 
     private readonly Dictionary<string, List<StoredMessage>> conversationHistory = new();
+    private readonly Dictionary<string, List<ScheduledMessage>> unreadScheduledMessages = new();
 
-    //subscribe to the time runner's OnMinuteChanged event to check for scheduled messages every minute
+    //subscribe to the time runner's OnMinuteChanged event to check for scheduled messages every in-game minute
     private void OnEnable()
     {
         if (timeRunner != null)
@@ -60,6 +61,7 @@ public class ConversationManager : MonoBehaviour
         profileImage.sprite = contact.profilePicture;
 
         DisplayConversationHistory();
+        GrantUnreadMessageClues(contact); //grants clues for any unread scheduled messages from this contact
         RefreshQuestions();
     }
 
@@ -288,11 +290,57 @@ public class ConversationManager : MonoBehaviour
             AddMessage(contact, message.text, false);
         }
 
-        foreach(string clue in scheduledMessage.grantedClues)
+        if (currentContact == contact)
+        {
+            GrantScheduledMessageClues(scheduledMessage);
+            RefreshQuestions();
+        }
+        else
+        {
+            StoreUnreadScheduledMessage(contact, scheduledMessage);
+        }
+
+            /*foreach(string clue in scheduledMessage.grantedClues)
+            {
+                InvestigationState.Instance.AddClue(clue);
+            }*/
+
+            //RefreshQuestions();
+    }
+
+    private void GrantScheduledMessageClues(ScheduledMessage scheduledMessage)
+    {
+        foreach (string clue in scheduledMessage.grantedClues)
         {
             InvestigationState.Instance.AddClue(clue);
         }
+    }
+    
+    private void GrantUnreadMessageClues(Character contact)
+    {
+        if (!unreadScheduledMessages.TryGetValue(contact.characterId, out List<ScheduledMessage> messages))
+        {
+            return;
+        }
 
-        RefreshQuestions();
+        foreach (ScheduledMessage message in messages)
+        {
+            GrantScheduledMessageClues(message);
+        }
+
+        messages.Clear();
+    }
+
+    private void StoreUnreadScheduledMessage(Character contact, ScheduledMessage scheduledMessage)
+        // stores a scheduled message that has been triggered but not yet read by the player
+    {
+        if (!unreadScheduledMessages.TryGetValue(contact.characterId, out List<ScheduledMessage> messages))
+        {
+            messages = new List<ScheduledMessage>();
+
+            unreadScheduledMessages.Add(contact.characterId, messages);
+        }
+
+        messages.Add(scheduledMessage);
     }
 }

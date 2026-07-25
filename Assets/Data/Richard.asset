@@ -15,6 +15,155 @@ MonoBehaviour:
   characterId: char_richard
   displayName: Richard
   profilePicture: {fileID: 0}
-  contactButton: {fileID: 8441719338761841033, guid: 5cdb42f0f6fca644aa5fc2606dfe884c, type: 3}
-  scheduledMessages: []
-  questions: []
+  contactButton: {fileID: 0}
+  scheduledMessages:
+  - messageId: richard_introduction
+    triggerHour: 20
+    triggerMinute: 51
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: 'Good Evening, my wife, Evelyn told, me to contact you regarding her
+        ''case''. Personally I see no need for it, however I will tell you anything
+        you need to know.
+
+
+        Richard'
+      delay: 0.25
+  - messageId: richard_on_bryans_textile_knowledge
+    triggerHour: 21
+    triggerMinute: 20
+    requiredClues: []
+    grantedClues:
+    - bryans_textile_knowledge
+    messages:
+    - sender: 1
+      text: It feels a little silly to mention this, but Evelyn told me to describe
+        anything I witness.
+      delay: 0
+    - sender: 1
+      text: I was just talking to Bryan... how does he suddenly so much about the
+        textiles industry? He's never been interested in conversation about it before,
+        he normally tells me to 'just retire' if I bring up work.
+      delay: 2.3
+  - messageId: richard_on_missing_pocket_watch
+    triggerHour: 22
+    triggerMinute: 10
+    requiredClues: []
+    grantedClues:
+    - missing_pocket_watch
+    messages:
+    - sender: 1
+      text: Something terrible has happened! my grandfathers pocket watch has disappeared!
+      delay: 0
+    - sender: 1
+      text: I was on my way to the restroom when I noticed it was not in it's display
+        case on the hallway cabinet, I am going to look around the house for it,
+        it cannot have gone far.
+      delay: 1.9
+  - messageId: richard_forgives_alex
+    triggerHour: 23
+    triggerMinute: 15
+    requiredClues:
+    - alexs_admission
+    - bryan_says_alex_lies
+    grantedClues:
+    - bryan_is_wrong
+    messages:
+    - sender: 1
+      text: Alex has just told me that he is the one whole stole the watch and I
+        have now returned it to its rightful position, I am furious.
+      delay: 0
+    - sender: 1
+      text: But I have ultimately chose to forgive him, he wanted to buy a ring so
+        he could propose to his partner, and he genuinely felt bad.
+      delay: 3.25
+    - sender: 1
+      text: He's going to be pulling double shifts for the next six weeks but, he's
+        a good lad at heart.
+      delay: 2
+  questions:
+  - questionId: Q01R
+    questionText: What do you know about 'Count Backward'?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    grantedClues:
+    - the_diary
+    response:
+    - sender: 1
+      text: My wife had found a diary of some sorts and is up in arms at the thought
+        of a spirit of some sorts. It is all a laughable farce to me my friend.
+      delay: 2.1
+  - questionId: Q03R
+    questionText: Evelyn told me to ask you about Alex, it seems to me he could be
+      withdrawing information?
+    askOnce: 1
+    requiredClues:
+    - richard_trusts_alex
+    - the_diary
+    grantedClues:
+    - 
+    response:
+    - sender: 1
+      text: No, not Alex, he's a good lad, but a little... shy, you could say. Especially
+        around new people. He's a great worker with me at the mill.
+      delay: 1.8
+  - questionId: Q04R
+    questionText: How long have you known Bryan?
+    askOnce: 1
+    requiredClues:
+    - richard_bryan_relationship
+    grantedClues:
+    - richards_faulty_memory_1
+    response:
+    - sender: 1
+      text: For a long time, we were teenagers when we met, I believe?
+      delay: 1.1
+    - sender: 1
+      text: Sorry, my memory isn't perfect.
+      delay: 0.8
+  - questionId: Q05R
+    questionText: Bryan said you have known each other since primary school, and
+      that he worked in the mill with you in his 20's?
+    askOnce: 1
+    requiredClues:
+    - bryans_textile_knowledge
+    - richards_faulty_memory_2
+    - richard_bryan_relationship
+    - richards_faulty_memory_1
+    grantedClues:
+    - bryans_faulty_memory
+    response:
+    - sender: 1
+      text: No, he's got that wrong, we attended the same secondary school togethor,
+        he was living abroad for the majority of his childhood, maybe his misremembered.
+      delay: 1.86
+    - sender: 1
+      text: As for the mill- he worked with me and my father for maybe two weeks
+        when we were in our early 20's, we ended up falling out over it, and he hasn't
+        liked speaking about the industry since... until today.
+      delay: 3.8
+  - questionId: Q08R
+    questionText: Did you see anybody leave the drawing room recently?
+    askOnce: 1
+    requiredClues:
+    - missing_pocket_watch
+    grantedClues: []
+    response:
+    - sender: 1
+      text: "No, I did not, maybe ask the others, I need to keep looking!\t"
+      delay: 2.85
+  - questionId: Q12R
+    questionText: People have noticed you wandering around the house, staring at
+      clocks, are you okay?
+    askOnce: 1
+    requiredClues:
+    - what_is_richard_doing
+    grantedClues: []
+    response:
+    - sender: 1
+      text: I'm concerned for my posessions! if one has gone missing, I certainly
+        don't want to be losing more!
+      delay: 2.25

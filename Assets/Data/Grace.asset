@@ -15,6 +15,93 @@ MonoBehaviour:
   characterId: char_grace
   displayName: Grace
   profilePicture: {fileID: 0}
-  contactButton: {fileID: 8995459427242841247, guid: 1ceb189d31e1a1d4e87f4465f4055593, type: 3}
-  scheduledMessages: []
-  questions: []
+  contactButton: {fileID: 0}
+  scheduledMessages:
+  - messageId: grace_introduction
+    triggerHour: 20
+    triggerMinute: 49
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: Hello, I am Grace, and I work as Mr & Mrs Mercer's housekeeper, and have
+        done for the past 11 years, since I was 28, so I know the house relatively
+        well you could say.
+      delay: 0
+  - messageId: grace_on_evelyn_shutdown
+    triggerHour: 21
+    triggerMinute: 25
+    requiredClues: []
+    grantedClues:
+    - evelyn_shutdown_grace
+    messages:
+    - sender: 1
+      text: I just tried to speak to Mrs Mercer about the diary, she shut down the
+        conversation immediately.
+      delay: 3.1
+  - messageId: grace_on_alexs_exit
+    triggerHour: 21
+    triggerMinute: 35
+    requiredClues: []
+    grantedClues:
+    - where_did_alex_go
+    messages:
+    - sender: 1
+      text: I was just speaking to Alex about his job with RIchard, he seemed very
+        anxious in the conversation, and seem to leave the conversation in a hurry?
+        I'm unsure where he has gone.
+      delay: 2.85
+  - messageId: grace_admission
+    triggerHour: 23
+    triggerMinute: 20
+    requiredClues:
+    - what_is_in_the_spare_bedroom
+    grantedClues:
+    - evelyns_secret_1
+    messages:
+    - sender: 1
+      text: I had no choice but to let Mrs Mercer into room, I'm sorry for lying
+        to you, I knocked over one of Richard's antique grandfather clocks.
+      delay: 0
+    - sender: 1
+      text: I was attempting to move a painting out of the room, a job I was supposed
+        to complete earlier in the day.
+      delay: 1.6
+    - sender: 1
+      text: 'Mrs Mercer wanted the room cleared so she could read the diary in peace,
+        thats all I know. '
+      delay: 1.6
+  questions:
+  - questionId: Q01G
+    questionText: What do you know about 'Count Backward'?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    grantedClues:
+    - the_diary
+    response:
+    - sender: 1
+      text: Very little, I found an old diary whilst cleaning, and gave it to Mrs
+        Mercer. I didn't read it.
+      delay: 1.35
+  - questionId: Q10G
+    questionText: Where were you when the crashing sound occured?
+    askOnce: 1
+    requiredClues:
+    - where_was_grace
+    grantedClues: []
+    response:
+    - sender: 1
+      text: "I was in the restroom.\t"
+      delay: 4.2
+  - questionId: Q11G
+    questionText: Why are you stopping people from entering the spare bedroom?
+    askOnce: 1
+    requiredClues:
+    - what_is_in_the_spare_bedroom
+    grantedClues:
+    - grace_caused_the_noise
+    response:
+    - sender: 1
+      text: It's just a mess at the moment!
+      delay: 2

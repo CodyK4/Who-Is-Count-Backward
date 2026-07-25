@@ -15,6 +15,103 @@ MonoBehaviour:
   characterId: char_alex
   displayName: Alex
   profilePicture: {fileID: 0}
-  contactButton: {fileID: 1590751273482443728, guid: dff693227f226a04ea9a9b3b04b1c379, type: 3}
-  scheduledMessages: []
-  questions: []
+  contactButton: {fileID: 0}
+  scheduledMessages:
+  - messageId: alex_introduction
+    triggerHour: 20
+    triggerMinute: 49
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: I've been told to contact you,  but I'd prefer it if you kept me out
+        of this as much as possible... Thanks.
+      delay: 0.26
+  - messageId: alex_admits
+    triggerHour: 23
+    triggerMinute: 10
+    requiredClues: []
+    grantedClues:
+    - what_bryan_whispered_to_alex
+    - alexs_admission
+    messages:
+    - sender: 1
+      text: Okay... I admit it, I stole the watch, I tried to put it back without
+        anyone noticing, but Richard has locked the display case it belongs in...
+      delay: 1.85
+    - sender: 1
+      text: I'm telling you because of what Bryan said to me after I came back from
+        the hallway after Grace told me to leave...
+      delay: 2.5
+    - sender: 1
+      text: He whispered "I'm glad he has forgiven you", but I havent told anybody,
+        theres no way he could know! I'm going to tell Richard I was the thief now...
+        I feel awful.
+      delay: 3.15
+  questions:
+  - questionId: Q01A
+    questionText: What do you know about 'Count Backward'?
+    askOnce: 1
+    requiredClues:
+    - backstory
+    grantedClues:
+    - alexs_secrecy_1
+    response:
+    - sender: 1
+      text: "Honestly... nothing. I've never heard of it.\t"
+      delay: 7.1
+  - questionId: Q02A
+    questionText: Are you sure?
+    askOnce: 1
+    requiredClues:
+    - alexs_secrecy_1
+    grantedClues:
+    - alexs_secrecy_2
+    response:
+    - sender: 1
+      text: Yes I'm sure, I'd remember a name like that, wouldn't I?
+      delay: 2.8
+  - questionId: Q07A
+    questionText: Where did you go after you left the conversation with Grace?
+    askOnce: 1
+    requiredClues:
+    - where_did_alex_go
+    grantedClues:
+    - is_alex_hiding_something
+    response:
+    - sender: 1
+      text: If you really need to know... I went to the restroom, could you leave
+        me alone please?
+      delay: 6
+  - questionId: Q08A
+    questionText: Richard's pocket watch is missing, did you see anybody leave the
+      drawing room in the last twenty or so minutes?
+    askOnce: 1
+    requiredClues:
+    - missing_pocket_watch
+    grantedClues: []
+    response:
+    - sender: 1
+      text: Which One? He has hundreds.
+      delay: 3.9
+    - sender: 1
+      text: But no... nobody left the room.
+      delay: 4.2
+  - questionId: Q10A
+    questionText: Where were you when the crashing sound occured?
+    askOnce: 1
+    requiredClues:
+    - where_did_alex_go_2
+    grantedClues:
+    - what_is_in_the_spare_bedroom
+    response:
+    - sender: 1
+      text: I was walking to the restroom...
+      delay: 1.2
+    - sender: 1
+      text: Okay fine, If you really must know...
+      delay: 3
+    - sender: 1
+      text: Grace was in the hallway begging me not to enter the spare bedroom, I
+        did not converse with her.
+      delay: 4.8
