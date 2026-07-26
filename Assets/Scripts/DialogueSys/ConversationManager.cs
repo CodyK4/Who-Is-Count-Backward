@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class ConversationManager : MonoBehaviour
     // This class acts as the spine of the logic for the game. Handling conversation between the player and characters, displaying questions, scheduled messages, investigation state, etc.
@@ -18,8 +19,10 @@ public class ConversationManager : MonoBehaviour
 
     [Header("Messages")]
     [SerializeField] private Transform messageContainer;
+    [SerializeField] private Transform notificationContainer;
     [SerializeField] private ChatMessageBubble playerBubblePrefab;
     [SerializeField] private ChatMessageBubble contactBubblePrefab;
+    [SerializeField] private NotificationMessageBubble notificationBubblePrefab;
     [SerializeField] private ScrollRect messageScrollRect;
 
     [Header("Scheduled Messages")]
@@ -211,6 +214,10 @@ public class ConversationManager : MonoBehaviour
         {
             CreateMessageBubble(text, isPlayer, hour, minute);
         }
+        else if (currentContact != contact && notificationBubblePrefab != null) 
+        {
+            CreateNotification(contact, hour, minute);
+        }
     }
 
     private void CreateMessageBubble(string text, bool isPlayer, int hour, int minute)
@@ -222,6 +229,17 @@ public class ConversationManager : MonoBehaviour
         bubble.SetMessage(text, hour, minute);
 
         StartCoroutine(ScrollToBottomNextFrame());
+    }
+
+    private void CreateNotification(Character contact, int hour, int minute)
+        //instantiate the notification at the top of the screen
+    {
+        NotificationMessageBubble notifPrefab = notificationBubblePrefab;
+
+        NotificationMessageBubble notif = Instantiate(notifPrefab, notificationContainer);
+
+        notif.SetMessage(contact, hour, minute);
+        notif.PlayAnim(); //begin animation & destroy
     }
 
     private IEnumerator ScrollToBottomNextFrame()

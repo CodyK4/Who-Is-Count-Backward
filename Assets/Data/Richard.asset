@@ -76,8 +76,8 @@ MonoBehaviour:
         have now returned it to its rightful position, I am furious.
       delay: 0
     - sender: 1
-      text: But I have ultimately chose to forgive him, he wanted to buy a ring so
-        he could propose to his partner, and he genuinely felt bad.
+      text: But I have ultimately chosen to forgive him, he wanted to buy a ring
+        so he could propose to his partner, and he genuinely felt bad.
       delay: 3.25
     - sender: 1
       text: He's going to be pulling double shifts for the next six weeks but, he's
@@ -138,8 +138,8 @@ MonoBehaviour:
     - bryans_faulty_memory
     response:
     - sender: 1
-      text: No, he's got that wrong, we attended the same secondary school togethor,
-        he was living abroad for the majority of his childhood, maybe his misremembered.
+      text: No, he's got that wrong, we attended the same secondary school together
+        but he was living abroad for the majority of his childhood, maybe his misremembered.
       delay: 1.86
     - sender: 1
       text: As for the mill- he worked with me and my father for maybe two weeks
@@ -165,6 +165,6 @@ MonoBehaviour:
     grantedClues: []
     response:
     - sender: 1
-      text: I'm concerned for my posessions! if one has gone missing, I certainly
-        don't want to be losing more!
+      text: I'm concerned for my possessions! if one has gone missing, I certainly
+        don't want to lose more!
       delay: 2.25

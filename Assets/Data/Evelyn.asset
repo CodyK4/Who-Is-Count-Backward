@@ -26,7 +26,7 @@ MonoBehaviour:
     - sender: 1
       text: Thank you for agreeing to take the case on such short notice. I'm terribly
         sorry for asking this of you on New Year's Eve but... I didn't know who else
-        to ask
+        to ask.
       delay: 0
     - sender: 1
       text: I have sent your details to all of the party guests, I have asked them
@@ -35,8 +35,9 @@ MonoBehaviour:
       delay: 3.2
     - sender: 1
       text: Once you are confident that you have found out who Count Backward is-
-        call me, and I will ask that guest to leave. And please, I beg you tell me
-        before midnight, I don't want to find out if the legend is true, Good luck.
+        call me, and I will ask that guest to leave. And please, I beg you to tell
+        me before midnight, I don't want to find out if the legend is true, Good
+        luck.
       delay: 1.1
   - messageId: more_information
     triggerHour: 22
@@ -56,8 +57,8 @@ MonoBehaviour:
     - the_big_bang
     messages:
     - sender: 1
-      text: We just heard a loud crashing sound from upstairs! Richard had just been
-        asking us about the missing pocket watch when we heard the noise.
+      text: We have just heard a loud crashing sound from upstairs! Richard had just
+        been asking us about the missing pocket watch when we heard the noise.
       delay: 0
     - sender: 1
       text: Also, Bryan seemed to mutter something to himself...
@@ -82,7 +83,7 @@ MonoBehaviour:
     response:
     - sender: 1
       text: I was checking over the party invitation list earlier this evening, Every
-        name was exactly how I'd wrote it... except one. 'Count Backward' at the
+        name was exactly how I'd wrote it... except one. 'Count Backward', at the
         bottom of the list.
       delay: 2.8
     - sender: 1
@@ -111,15 +112,15 @@ MonoBehaviour:
     - evelyn_bryan_confrontation
     response:
     - sender: 0
-      text: I didnt read it... well, I didn't read much of it, I know it belonged
-        to man called William Hodd, it is very weathered, but I did read something
-        about 'Count Backward' mysteriously appearing on invitation lists, which
-        is what first set off my fears, and suspicions.
+      text: I didn't read it... well, I didn't read much of it, it is very weathered,
+        but I did read something about 'Count Backward' mysteriously appearing on
+        invitation lists, which is what first set off my fears, and suspicions.
       delay: 2.1
     - sender: 0
-      text: "I confronted Bryan about this, he has pranked me before and i suspected
+      text: I confronted Bryan about this, he has pranked me before and I suspected
         this was one of his childish attempts at getting a scare out of me, and to
-        my utter expectation, I was correct. I do not like that man.\t"
+        my utter expectation, I was correct, he planted the diary to scare me, I
+        do not like that man.
       delay: 3.8
   - questionId: Q03E/A
     questionText: Alex seems to be withdrawing information from me, what do you think?
@@ -155,7 +156,9 @@ MonoBehaviour:
         are still best friends.
       delay: 2.8
   - questionId: Q06E
-    questionText: Why did you shut down the conversation about diary with Grace?
+    questionText: 'Why did you shut down the conversation about the diary with Grace?
+
+'
     askOnce: 1
     requiredClues:
     - the_diary
@@ -164,8 +167,10 @@ MonoBehaviour:
     - richard_bryan_relationship
     response:
     - sender: 1
-      text: Because quite frankly my dear, it is none of her buisness. I just want
+      text: 'Because quite frankly my dear, it is none of her business. I just want
         everybody to have a good night.
+
+'
       delay: 3.2
   - questionId: EV-10G
     questionText: What more can you tell me about Grace?
@@ -187,9 +192,11 @@ MonoBehaviour:
     grantedClues: []
     response:
     - sender: 1
-      text: I have been married to Richard for a long time, forty years, he's inherited
-        his family's textile mill from his father 15 years ago, and still runs it
-        to this day.
+      text: 'I have been married to Richard for a long time, forty years, he inherited
+        his family''s textile mill from his father 15 years ago, and he still runs
+        it to this day.
+
+'
       delay: 2.865
   - questionId: Q09E
     questionText: Who was present in the conversation? And what did Bryan mutter
@@ -203,9 +210,11 @@ MonoBehaviour:
     - what_did_bryan_say
     response:
     - sender: 1
-      text: Richard was asking myself, Alex and Bryan about the missing watch. Alex
-        seemed to have disappeared when the crash occured, but he only left maybe
-        a handful of seconds before the sound occured.
+      text: 'Richard was asking myself, Alex and Bryan about the missing watch. Alex
+        seemed to have disappeared when the crash occurred, but he only left maybe
+        a handful of seconds before the sound occurred.
+
+'
       delay: 2.865
     - sender: 1
       text: I don't know what Bryan muttered, something about a clock perhaps?

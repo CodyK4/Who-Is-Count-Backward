@@ -24,9 +24,9 @@ MonoBehaviour:
     grantedClues: []
     messages:
     - sender: 1
-      text: Hello there, my name is Bryan, a friend of Richard's, Evelyn told me
-        to contact you, she is right to be worried, but it's her own fault for opening
-        the damned book!
+      text: Hello there, my name is Bryan, I am a friend of Richard's, Evelyn has
+        told me to contact you, she is right to be worried, but it's her own fault
+        for opening the damned book!
       delay: 0
   - messageId: bryan_richards_strange_actions
     triggerHour: 22
@@ -37,8 +37,8 @@ MonoBehaviour:
     messages:
     - sender: 1
       text: Richard is acting strange, he is wandering around the house, staring
-        and clocks, checking cabinets, locking and unlocking display cases... Thought
-        you ought to know.
+        at clocks, checking cabinets, locking and unlocking display cases... Thought
+        you should know.
       delay: 0
   questions:
   - questionId: Q01B
@@ -85,14 +85,14 @@ MonoBehaviour:
     - sender: 1
       text: Honestly? I hid it, you see myself and Evelyn historically aren't on
         the best of terms, and I used to play sort of pranks on her to give her a
-        fright. I placed the diary without her knowledge many years ago
+        fright. I placed the diary without her knowledge many years ago.
       delay: 2.8
     - sender: 1
       text: I had completely forgotten about the diary, until Evelyn confronted me
         about it earlier, at around 8:30
       delay: 1.8
   - questionId: Q03B
-    questionText: What came of your confrontation with evelyn?
+    questionText: What came of your confrontation with Evelyn?
     askOnce: 1
     requiredClues:
     - evelyn_bryan_confrontation
@@ -103,18 +103,19 @@ MonoBehaviour:
     - 
     response:
     - sender: 1
-      text: I told her to give it back, and forget that she had read any of it.
+      text: I told her to give it back to me, and forget that she had read any of
+        it.
       delay: 2.8
     - sender: 1
       text: You see, a few years after hiding it I was researching an unrelated matter,
-        when I stumbled across an old newspaper article which to my surprise mentioned
-        the Count, and when I looked it, I found tens, ney, hundreds of testimonies,
+        when I stumbled across an old newspaper article which to my surprise, mentioned
+        the Count and when I looked it, I found tens, nay, hundreds of testimonies,
         always on the eve of a new year, writing his name apparently had no effect
-        any other day of the year.
+        on any other day of the year.
       delay: 1.8
     - sender: 1
       text: The testimonies almost always mentioned of a guest acting strange after
-        his name had been written down- remembering events that only occured later
+        his name had been written down- remembering events that only occurred later
         in the evening, and having impossible knowledge.
       delay: 2.2
     - sender: 1
@@ -132,11 +133,11 @@ MonoBehaviour:
     - 
     response:
     - sender: 1
-      text: My entire life! We attended primary school togethor, and have been friends
+      text: My entire life! We attended primary school together, and have been friends
         ever since.
       delay: 2.8
   - questionId: Q04B/B
-    questionText: Richard said you know a lot about the textiles industry?
+    questionText: Richard said that you know a lot about the textiles industry?
     askOnce: 1
     requiredClues:
     - richard_bryan_relationship
@@ -171,7 +172,7 @@ MonoBehaviour:
     - stolen_pocket_watch?
     response:
     - sender: 1
-      text: Oh no! Thats terrible. Its okay, Richard will forgive the person who
+      text: Oh no! That's terrible. Its okay, Richard will forgive the person who
         stole it.
       delay: 2.1
     - sender: 1

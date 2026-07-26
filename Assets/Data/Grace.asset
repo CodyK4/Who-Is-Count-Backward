@@ -47,9 +47,11 @@ MonoBehaviour:
     - where_did_alex_go
     messages:
     - sender: 1
-      text: I was just speaking to Alex about his job with RIchard, he seemed very
-        anxious in the conversation, and seem to leave the conversation in a hurry?
-        I'm unsure where he has gone.
+      text: 'I was just speaking to Alex about his job with Richard, he seemed very
+        anxious in the conversation, and seem to leave the conversation in a hurry...
+        I''m unsure where he has gone.
+
+'
       delay: 2.85
   - messageId: grace_admission
     triggerHour: 23
@@ -85,7 +87,9 @@ MonoBehaviour:
         Mercer. I didn't read it.
       delay: 1.35
   - questionId: Q10G
-    questionText: Where were you when the crashing sound occured?
+    questionText: 'Where were you when the crashing sound occurred?
+
+'
     askOnce: 1
     requiredClues:
     - where_was_grace
