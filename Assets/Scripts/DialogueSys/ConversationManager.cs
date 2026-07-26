@@ -11,6 +11,11 @@ public class ConversationManager : MonoBehaviour
     [SerializeField] private TMP_Text contactNameText;
     [SerializeField] private Image profileImage;
 
+    [Header("Evelyn Header")]
+    //different to show the call button to accuse contacts on evelyns header
+    [SerializeField] private GameObject callButton;
+    [SerializeField] private Character evelyn;
+
     [Header("Messages")]
     [SerializeField] private Transform messageContainer;
     [SerializeField] private ChatMessageBubble playerBubblePrefab;
@@ -52,6 +57,12 @@ public class ConversationManager : MonoBehaviour
     //Opens a conversation with the specified contact, updating the UI.
     {
         currentContact = contact;
+
+        if (callButton != null)
+        {
+            callButton.SetActive(contact == evelyn);
+            //if evelyn is the active contact, show the call button
+        }
 
         contact.contactButton?.MarkAsRead();
 
@@ -210,8 +221,19 @@ public class ConversationManager : MonoBehaviour
 
         bubble.SetMessage(text, hour, minute);
 
+        StartCoroutine(ScrollToBottomNextFrame());
+    }
+
+    private IEnumerator ScrollToBottomNextFrame()
+        //ensures that the scroll rect stays anchored
+    {
+        yield return null;
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(messageContainer as RectTransform);
+
         Canvas.ForceUpdateCanvases();
-        messageScrollRect.verticalNormalizedPosition = 0f; 
+
+        messageScrollRect.verticalNormalizedPosition = 0f;
     }
 
     private void CheckScheduledMessages(int hour, int minute)

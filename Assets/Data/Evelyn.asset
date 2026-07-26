@@ -24,25 +24,20 @@ MonoBehaviour:
     grantedClues: []
     messages:
     - sender: 1
-      text: 'Thank you for agreeing to take the case on such short notice. I''m terribly
-        sorry for asking this of you on New Year''s Eve but... I don''t know who
-        else to ask
-
-
-        Something happened earlier today that I cannot explain,
-        whilst checking my guest list, I found an extra name at the bottom, ''Count
-        Backward''
-
-
-        I dismissed it at first, but one of my guests insists
-        it is connected to an old legend, and everyone has been acting a little strange
-        on arrival.'
+      text: Thank you for agreeing to take the case on such short notice. I'm terribly
+        sorry for asking this of you on New Year's Eve but... I didn't know who else
+        to ask
       delay: 0
     - sender: 1
       text: I have sent your details to all of the party guests, I have asked them
         to contact you to make a brief introduction, so you should be getting those
         shortly.
-      delay: 7.5
+      delay: 3.2
+    - sender: 1
+      text: Once you are confident that you have found out who Count Backward is-
+        call me, and I will ask that guest to leave. And please, I beg you tell me
+        before midnight, I don't want to find out if the legend is true, Good luck.
+      delay: 1.1
   - messageId: more_information
     triggerHour: 22
     triggerMinute: 0
@@ -67,6 +62,16 @@ MonoBehaviour:
     - sender: 1
       text: Also, Bryan seemed to mutter something to himself...
       delay: 2.1
+  - messageId: evelyns_reminder
+    triggerHour: 23
+    triggerMinute: 42
+    requiredClues: []
+    grantedClues: []
+    messages:
+    - sender: 1
+      text: Remember to call telling me who Count Backward is before midnight! I
+        need to know!
+      delay: 0
   questions:
   - questionId: QOPEN
     questionText: Let's start at the beginning, tell me exactly what happened.
@@ -76,16 +81,14 @@ MonoBehaviour:
     - backstory
     response:
     - sender: 1
-      text: 'This morning I was checking the guest list one last time before the
-        party. Every name was exactly where I''d left it... except one.
-
-        At
-        the bottom of the list was ''Count Backward.''
-
-        I didn''t write it...
-        at least, I don''t remember writing it.
-
-'
+      text: I was checking over the party invitation list earlier this evening, Every
+        name was exactly how I'd wrote it... except one. 'Count Backward' at the
+        bottom of the list.
+      delay: 2.8
+    - sender: 1
+      text: I dismissed it at first, but one of my guests insists it is connected
+        to an old legend, and I can't shake the feeling that something is terribly
+        off about tonight.
       delay: 2.8
   - questionId: Q01E
     questionText: What do you know about 'Count Backward'?

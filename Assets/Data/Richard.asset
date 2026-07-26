@@ -24,9 +24,9 @@ MonoBehaviour:
     grantedClues: []
     messages:
     - sender: 1
-      text: 'Good Evening, my wife, Evelyn told, me to contact you regarding her
-        ''case''. Personally I see no need for it, however I will tell you anything
-        you need to know.
+      text: 'Good Evening, my wife, Evelyn told me to contact you regarding her ''case''.
+        Personally I see no need for it, however I will tell you anything you need
+        to know.
 
 
         Richard'
@@ -93,8 +93,9 @@ MonoBehaviour:
     - the_diary
     response:
     - sender: 1
-      text: My wife had found a diary of some sorts and is up in arms at the thought
-        of a spirit of some sorts. It is all a laughable farce to me my friend.
+      text: My wife had found a diary of some description, and is up in arms at the
+        thought of a spirit. I thought to myself a spirit? seriously? It is all a
+        laughable farce to me my friend.
       delay: 2.1
   - questionId: Q03R
     questionText: Evelyn told me to ask you about Alex, it seems to me he could be

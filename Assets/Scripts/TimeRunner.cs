@@ -24,28 +24,14 @@ public class TimeRunner : MonoBehaviour
     [SerializeField] private float realGameLengthMinutes = 10f;
 
         [Header("UI Output")]
-        //UI Outputs
-    [Tooltip("Digital Time")]
     [SerializeField] private TMP_Text timeText;
 
-    [Tooltip("Use Analogue Output?")]
-    [SerializeField] private bool useAnalogueOutput = true;
-
-    [Tooltip("Minute Hand for an analogue clock")]
-    [SerializeField] Transform minuteHand;
-    private Quaternion minuteHandlocalRotation;
-
-    [Tooltip("Hour Hand for an analogue clock")]
-    [SerializeField] Transform hourHand;
-    private Quaternion hourHandlocalRotation;
-        //
-
-        [Header("Events")]
-    [SerializeField] private UnityEvent onTimeExpired;
+    public event System.Action onTimeExpired;
 
     private float elapsedRealSeconds;
     private bool isRunning;
     private bool hasFinished;
+    private bool timePaused;
 
     public float Progress { get; private set; }
     public float RemainingRealSeconds { get; private set; }
@@ -69,15 +55,9 @@ public class TimeRunner : MonoBehaviour
         StartTimer();
     }
 
-    private void Awake()
-    {
-        hourHandlocalRotation = hourHand.localRotation;
-        minuteHandlocalRotation = minuteHand.localRotation;
-    }
-
     private void Update()
     {
-        if (!isRunning || hasFinished)
+        if (!isRunning || hasFinished || timePaused)
         {
             return;
         }
@@ -102,6 +82,7 @@ public class TimeRunner : MonoBehaviour
         Progress = 0f;
         isRunning = true;
         hasFinished = false;
+        timePaused = false;
 
         UpdateTimeUI();
     }
@@ -141,6 +122,16 @@ public class TimeRunner : MonoBehaviour
         onTimeExpired?.Invoke();
     }
 
+    public void SkipToMidnight()
+    {
+        timePaused = true;
+
+        CurrentHour = 0;
+        CurrentMinute = 0;
+
+        UpdateTimeUI();
+    }
+
     private void UpdateTimeUI()
     {
         float currentTimeSeconds = StartTimeSeconds + GameDurationSeconds * Progress;
@@ -170,12 +161,6 @@ public class TimeRunner : MonoBehaviour
         else
         {
             timeText.text = $"{hours:00}:{minutes:00}";
-        }
-
-        if (useAnalogueOutput)
-        {
-            minuteHand.localRotation = minuteHandlocalRotation * Quaternion.Euler(0f, 0f, -6f * minutes);
-            hourHand.localRotation = hourHandlocalRotation * Quaternion.Euler(0f, 0f, -30f * (hours + minutes / 60f));
         }
     }
 }

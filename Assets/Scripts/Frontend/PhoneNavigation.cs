@@ -24,4 +24,10 @@ public class PhoneNavigation : MonoBehaviour
         messagesScreen.SetActive(false);
         conversationsScreen.SetActive(true);
     }
+
+    public void HideAllScreens()
+    {
+        messagesScreen.SetActive(false);
+        conversationsScreen.SetActive(false);
+    }
 }
